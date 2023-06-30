@@ -24,7 +24,7 @@ public class GuessNumber
 
     public int difficultyLevel = 1;
 
-    public bool gameOver;
+    public bool gameOver = false;
 
     //1 - Imprima uma mensagem de saudação
     public string Greet()
@@ -41,6 +41,7 @@ public class GuessNumber
         if (currentAttempts > maxAttempts)
         {
             string errorMessage = "Você excedeu o número máximo de tentativas! Tente novamente.";
+            gameOver = true;
             return errorMessage;
         }
         bool isNumber = Int32.TryParse(userEntry, out userValue);
@@ -101,12 +102,18 @@ public class GuessNumber
             return message;
         }
         message = "ACERTOU!";
+        gameOver = true;
         return message;
     }
 
     //7 - Adicione uma opção para reiniciar o jogo
     public void RestartGame()
     {
-        throw new NotImplementedException();
+        currentAttempts = 0;
+        userValue = 0;
+        randomValue = 0;
+        difficultyLevel = 1;
+        maxAttempts = 5;
+        gameOver = false;
     }
 }
