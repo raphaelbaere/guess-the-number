@@ -6,7 +6,7 @@ public class GuessNumber
 {
     //In this way we are passing the random number generator by dependency injection
     private IRandomGenerator random;
-    public GuessNumber() : this(new DefaultRandom()){}
+    public GuessNumber() : this(new DefaultRandom()) { }
     public GuessNumber(IRandomGenerator obj)
     {
         this.random = obj;
@@ -29,7 +29,8 @@ public class GuessNumber
     //1 - Imprima uma mensagem de saudação
     public string Greet()
     {
-        throw new NotImplementedException();
+        string greet = "---Bem-vindo ao Guessing Game--- /n Para começar, tente adivinhar o número que eu pensei, entre -100 e 100!";
+        return greet;
     }
 
     //2 - Receba a entrada da pessoa usuária e converta para Int
