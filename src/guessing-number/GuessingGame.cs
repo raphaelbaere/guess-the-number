@@ -41,10 +41,12 @@ public class GuessNumber
         if (!isNumber)
         {
             string errorMessage = "Entrada inválida! Não é um número.";
+            userValue = 0;
             return errorMessage;
-        } else if (userValue >= -100 && userValue <= 100)
+        } else if (!(userValue >= -100 && userValue <= 100))
         {
             string errorMessage = "Entrada inválida! Valor não está no range.";
+            userValue = 0;
             return errorMessage;
         }
         string successMessage = "Número escolhido!";
